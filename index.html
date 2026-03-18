@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khymell Chapman | Video & Film Portfolio</title>
+  <meta name="description" content="Video editor, filmmaker, and creative storyteller portfolio for Khymell Chapman." />
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --panel: #14141b;
+      --soft: #1d1d27;
+      --text: #f5f5f7;
+      --muted: #b2b2c2;
+      --accent: #8ab4ff;
+      --line: rgba(255,255,255,0.08);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #09090c 0%, #111119 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 11, 15, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus { color: var(--text); }
+
+    .hero {
+      padding: 5rem 0 3rem;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      margin: 0 0 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 58ch;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.75rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 600;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.2); }
+    .button.primary { background: var(--text); color: #0f1014; }
+
+    .hero-card {
+      background: radial-gradient(circle at top right, rgba(138,180,255,0.22), transparent 35%), var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 1rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .video-wrap {
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 2.5rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 50ch;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.15); }
+
+    .thumb {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #202030, #111118);
+      display: grid;
+      place-items: center;
+      color: #d7d7e6;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.1rem;
+    }
+
+    .card p, .about p, .contact p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.25rem;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.4rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .service {
+      padding: 0.95rem 1rem;
+      border-radius: 18px;
+      background: var(--soft);
+      border: 1px solid rgba(255,255,255,0.05);
+      color: #e9e9f3;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 4rem 0 5rem;
+    }
+
+    .contact-box {
+      
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 2rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .about, .grid { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand">Khymell Chapman</a>
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <div class="eyebrow">Video • Film • Editing</div>
+        <h1>Cinematic visuals for stories, brands, and people.</h1>
+        <p>
+          I’m Khymell Chapman, a filmmaker and video creative focused on intentional, emotional, and visually sharp work. I create documentary pieces, narrative shorts, promo content, event coverage, and polished edits for artists, brands, and organizations.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#contact">Book a Project</a>
+          <a class="button" href="#work">View Projects</a>
+          <a class="button" href="mailto:Khymellchapman@gmail.com">Email Me</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="video-wrap">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1vdO-BcVHak" title="Demo Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="work">
+      <div class="section-head">
+        <div>
+          <h2>Selected Work</h2>
+        </div>
+        <p>A selection of documentary, narrative, and short-form work that shows my range across story, tone, and visual style.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="thumb" style="padding:0; aspect-ratio:16 / 10;">
+            <iframe
+              src="https://player.vimeo.com/video/1007011537?h=24a22d7c3c"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="card-body">
+            <div class="tag">Award-Winning Documentary Short</div>
+            <h3>Agriculture</h3>
+            <p>A documentary short centered on agriculture, land, and community, recognized with awards for its storytelling.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" style="padding:0; aspect-ratio:16 / 10;">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/k0e_ORjKqwQ"
+              title="Is There Anything I Can Do For You?"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="card-body">
+            <div class="tag">Student Narrative Short</div>
+            <h3>Is There Anything I Can Do For You?</h3>
+            <p>A student short film built around performance, mood, and intimate visual storytelling.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" style="padding:0; aspect-ratio:16 / 10;">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/tmamphtU4cY"
+              title="Short Film Example"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="card-body">
+            <div class="tag">Short Film</div>
+            <h3>Featured Short</h3>
+            <p>A short film example showcasing narrative pacing, emotional tone, and strong visual composition.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section about" id="about">
+      <div class="panel">
+        <div class="section-head">
+          <div><h2>About Me</h2></div>
+        </div>
+        <p>
+          I’m a filmmaker and creative storyteller based in North Carolina with a focus on work that feels grounded, cinematic, and memorable. My approach blends strong visuals with emotion, whether I’m building a documentary, shaping a narrative short, or creating promotional content for a client.
+        </p>
+        <p style="margin-top: 1rem;">
+          I’m especially drawn to projects that need intentional storytelling, clean editing, and a clear visual point of view. I enjoy collaborating with artists, brands, organizations, and people with stories worth telling.
+        </p>
+      </div>
+
+      <div class="panel" id="services">
+        <div class="section-head">
+          <div><h2>Services</h2></div>
+        </div>
+        <div class="services">
+          <div class="service">Documentary Filmmaking</div>
+          <div class="service">Narrative Shorts</div>
+          <div class="service">Promo Videos</div>
+          <div class="service">Event Coverage</div>
+          <div class="service">Editing & Post-Production</div>
+          <div class="service">Social Media Content</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="container contact" id="contact">
+      <div class="contact-box">
+        <div class="eyebrow">Let’s make something good</div>
+        <h2 style="margin-top:0; font-size: clamp(1.8rem, 3vw, 2.7rem);">Available for freelance and collaborative projects</h2>
+        <p>
+          For bookings, collaborations, or creative inquiries, reach out and tell me what you’re working on. I’m available for freelance video projects, editing work, short films, documentary production, and branded content.
+        </p>
+        <div class="cta-row" style="justify-content:center; margin-top:1.5rem;">
+          <a class="button primary" href="mailto:Khymellchapman@gmail.com">Khymellchapman@gmail.com</a>
+          <a class="button" href="tel:2523209735">252-320-9735</a>
+          <a class="button" href="https://www.instagram.com/_khymell/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Khymell Chapman. Built for a clean, sendable portfolio experience.</div>
+  </footer>
+</body>
+</html>
