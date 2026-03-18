@@ -163,6 +163,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
+      align-items: start;
     }
 
     .card {
@@ -171,18 +172,74 @@
       border-radius: 22px;
       overflow: hidden;
       transition: transform 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
     }
 
     .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.15); }
 
     .thumb {
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
       background: linear-gradient(135deg, #202030, #111118);
       display: grid;
       place-items: center;
       color: #d7d7e6;
       font-weight: 600;
       letter-spacing: 0.03em;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.28));
+      pointer-events: none;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-button {
+      position: absolute;
+      z-index: 2;
+      width: 68px;
+      height: 68px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.16);
+      display: grid;
+      place-items: center;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .play-button::before {
+      content: "";
+      display: block;
+      margin-left: 4px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid white;
+    }
+
+    .card:hover .play-button {
+      transform: scale(1.05);
+      background: rgba(0,0,0,0.72);
+    }
+
+    .thumb-link {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .card-body {
@@ -310,15 +367,11 @@
 
       <div class="grid">
         <article class="card">
-          <div class="thumb" style="padding:0; aspect-ratio:16 / 10;">
-            <iframe
-              src="https://player.vimeo.com/video/1007011537?h=24a22d7c3c"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+          <div class="thumb">
+            <a class="thumb-link" href="https://vimeo.com/1007011537/24a22d7c3c" target="_blank" rel="noreferrer">
+              <img src="unnamed.png" alt="Agriculture thumbnail" />
+              <span class="play-button" aria-hidden="true"></span>
+            </a>
           </div>
           <div class="card-body">
             <div class="tag">Award-Winning Documentary Short</div>
@@ -328,40 +381,30 @@
         </article>
 
         <article class="card">
-          <div class="thumb" style="padding:0; aspect-ratio:16 / 10;">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/k0e_ORjKqwQ"
-              title="Is There Anything I Can Do For You?"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+          <div class="thumb">
+            <a class="thumb-link" href="https://youtu.be/k0e_ORjKqwQ" target="_blank" rel="noreferrer">
+              <img src="Blue Head Shoulder.png" alt="Is There Anything I Can Do For You? thumbnail" />
+              <span class="play-button" aria-hidden="true"></span>
+            </a>
           </div>
           <div class="card-body">
             <div class="tag">Student Narrative Short</div>
             <h3>Is There Anything I Can Do For You?</h3>
-            <p>A student short film built around performance, mood, and intimate visual storytelling.</p>
+            <p>A student narrative short film about the budding romance of LGBTQ youth as they navigate connection, vulnerability, and life after heartbreak.</p>
           </div>
         </article>
 
         <article class="card">
-          <div class="thumb" style="padding:0; aspect-ratio:16 / 10;">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/tmamphtU4cY"
-              title="Short Film Example"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+          <div class="thumb">
+            <a class="thumb-link" href="https://youtu.be/tmamphtU4cY" target="_blank" rel="noreferrer">
+              <img src="ICONREDBOXING.PNG" alt="Short-form social media content thumbnail" />
+              <span class="play-button" aria-hidden="true"></span>
+            </a>
           </div>
           <div class="card-body">
-            <div class="tag">Short Film</div>
-            <h3>Featured Short</h3>
-            <p>A short film example showcasing narrative pacing, emotional tone, and strong visual composition.</p>
+            <div class="tag">Short-Form Content</div>
+            <h3>Short-Form Reels & Social Content</h3>
+            <p>I also create short-form content built for platforms like TikTok, Instagram Reels, and other social media, designed to be sharp, engaging, and visually polished.</p>
           </div>
         </article>
       </div>
